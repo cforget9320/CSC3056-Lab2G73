@@ -2,6 +2,8 @@ package org.jfree.data;
 
 import static org.junit.Assert.*;
 
+import java.security.InvalidParameterException;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,5 +46,14 @@ public class DataUtilitiesTest extends DataUtilities {
 		
 		assertEquals("Wrong sum is returned. It should be 5.0",5.0,DataUtilities.calculateColumnTotal(values2D, 0),0.000000001d);
 	}
-
+public void testNullDataColumnTotal() {
+	try {
+		DataUtilities.calculateColumnTotal(null, 0);
+		fail("No exception was thrown");
+	}
+	catch(Exception e) {
+		assertTrue("Incorrect exception type was thrown",e.getClass().equals(InvalidParameterException.class));
+	}
+	
+}
 }
