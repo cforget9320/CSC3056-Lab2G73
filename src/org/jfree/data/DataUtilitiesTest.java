@@ -15,7 +15,7 @@ import org.jfree.data.DefaultKeyedValues2D;
 import org.jfree.data.Values2D; 
 import junit.framework.TestCase; 
 
-public class DataUtilitiesTest extends DataUtilities {
+public class DataUtilitiesTest extends TestCase {
 
 	private Values2D values2D;
 	@BeforeClass
@@ -42,7 +42,6 @@ public class DataUtilitiesTest extends DataUtilities {
 
 	@Test
 	public void testValidateDataAndColumnColumnTotal() {
-		
 		
 		assertEquals("Wrong sum is returned. It should be 5.0",5.0,DataUtilities.calculateColumnTotal(values2D, 0),0.000000001d);
 	}
